@@ -1,6 +1,6 @@
 <template>
   <client-only>
-    <trading-vue :data="$data"></trading-vue>
+    <trading-vue :data="tradingVue"></trading-vue>
   </client-only>
 </template>
 
@@ -15,13 +15,28 @@ export default {
   // components: { TradingVue }
   data() {
     return {
-      ohlcv: [
-        [ 1551128400000, 33,  37.1, 14,  14,  196 ],
-        [ 1551132000000, 13.7, 30, 6.6,  30,  206 ],
-        [ 1551135600000, 29.9, 33, 21.3, 21.8, 74 ],
-        [ 1551139200000, 21.7, 25.9, 18, 24,  140 ],
-        [ 1551142800000, 24.1, 24.1, 24, 24.1, 29 ],
-      ]
+      tradingVue: {
+        chart: {
+          type: 'Candles',
+          data: [
+            [ 1551128400000, 33,  37.1, 14,  14,  196 ],
+            [ 1551132000000, 13.7, 30, 6.6,  30,  206 ],
+            [ 1551135600000, 29.9, 33, 21.3, 21.8, 74 ],
+            [ 1551139200000, 21.7, 25.9, 18, 24,  140 ],
+            [ 1551142800000, 24.1, 24.1, 24, 24.1, 29 ],
+          ],
+          indexBased: true,
+          tf: '1d',
+        },
+        onchart: [
+          {
+            name: 'Setups',
+            type: 'Setups',
+            data: [[1201539600000, 1, 24000]],
+            settings: {},
+          },
+        ],
+      }
     }
   }
 }
