@@ -1,13 +1,18 @@
 <template>
-  <trading-vue :data="this.$data"></trading-vue>
+  <client-only>
+    <trading-vue :data="$data"></trading-vue>
+  </client-only>
 </template>
 
 <script>
-import TradingVue from 'trading-vue-js'
-
+// Importing manually will also throw `windows is not defined error`
+// Using `components: true` in nuxt.config.js
+// import TradingVue from 'trading-vue-js'
 export default {
   name: 'app',
-  components: { TradingVue },
+  // Importing manually will also throw `windows is not defined error`
+  // Using `components: true` in nuxt.config.js
+  // components: { TradingVue }
   data() {
     return {
       ohlcv: [

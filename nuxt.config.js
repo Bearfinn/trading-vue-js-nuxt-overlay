@@ -1,6 +1,8 @@
 export default {
-  mode: 'static',
+  target: 'static',
   plugins: [
-    '~/plugins/trading-vue.client.js'
-  ]
+    { src: '~/plugins/trading-vue.client.js', mode: 'client' }
+  ],
+  // Using @nuxt/components module to auto-import components
+  components: true,
 }
