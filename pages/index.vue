@@ -1,10 +1,11 @@
 <template>
   <client-only>
-    <trading-vue :data="tradingVue"></trading-vue>
+    <trading-vue :data="tradingVue" :overlays="overlays"></trading-vue>
   </client-only>
 </template>
 
 <script>
+import SetupIndicator from '~/components/SetupIndicator';
 // Importing manually will also throw `windows is not defined error`
 // Using `components: true` in nuxt.config.js
 // import TradingVue from 'trading-vue-js'
@@ -32,11 +33,12 @@ export default {
           {
             name: 'Setups',
             type: 'Setups',
-            data: [[1201539600000, 1, 24000]],
+            data: [[1551128400000, 1, 35]],
             settings: {},
           },
         ],
-      }
+      },
+      overlays: [SetupIndicator]
     }
   }
 }
